@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'html5-rails'
+gem 'ember-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,7 +23,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'thin'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
