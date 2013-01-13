@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.string :description
-      t.decimal :budget
+      t.decimal :budget, :precision => 10, :scale => 2
 
       t.timestamps
     end

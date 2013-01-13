@@ -11,22 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212000604) do
+ActiveRecord::Schema.define(:version => 20130113131620) do
 
   create_table "expenses", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.decimal  "amount"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "amount",      :precision => 10, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "project_id"
   end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.decimal  "budget"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "budget",      :precision => 10, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
 end
