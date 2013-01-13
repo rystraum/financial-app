@@ -4,6 +4,14 @@ class Project < ActiveRecord::Base
   has_many :expenses
 
   validates :name, presence: true
-  validates :budget, presence: true
+  validates :budget, presence: true, numericality: true
+
+  def list_expense
+  	expenses.map do |i| i.amount end
+  end
+
+  def total
+  	budget - list_expense.sum
+  end
 
 end
