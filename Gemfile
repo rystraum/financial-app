@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'html5-rails'
@@ -20,6 +20,10 @@ group :assets do
   gem 'compass-rails'
   gem 'compass-h5bp'
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development, :testing do
+	gem 'pry'
 end
 
 gem 'jquery-rails'
