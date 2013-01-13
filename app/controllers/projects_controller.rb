@@ -10,9 +10,19 @@ class ProjectsController < ApplicationController
 	end
 
 	def new
+		@project = Project.new params[:project]
 	end
 
 	def create
+		@project = Project.new params[:project]
+
+		if @project.save
+			flash[:success] = "Project Created"
+			redirect_to @project
+		else
+			render 'new'
+		end
+
 	end
 
 	def edit
@@ -21,7 +31,9 @@ class ProjectsController < ApplicationController
 	def update
 	end
 
-	def destory
+	def destroy
+		@project = Project.find params[:id]
+		@project.destroy
 	end
 
 end
