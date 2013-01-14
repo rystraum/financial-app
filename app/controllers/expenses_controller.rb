@@ -16,7 +16,7 @@ class ExpensesController < ApplicationController
 	end
 
 	def create
-		@project = Project.find params[:id]
+		@project = Project.firnd params[:id]
 		@expense = @project.expenses.new params[:expense]
 		if @expense.save
 			redirect_to @project
@@ -32,7 +32,9 @@ class ExpensesController < ApplicationController
 	end
 
 	def destroy
-
+		@expense = Expense.find params[:id]
+		@expense.destroy
+		redirect_to :back
 	end
 
 end
