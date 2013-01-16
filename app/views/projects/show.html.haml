@@ -1,7 +1,11 @@
-#{@project.name} #{@project.total}
+#{@project.name}
+= number_to_currency @project.total, unit: 'PhP '
+#{@project.description}
+= link_to 'add new expense', new_project_expense_path(@project)
 %ul
 	- for expense in @expenses
 		%li
-			#{expense.name} | #{expense.amount}
-			=link_to 'edit', edit_expense_path(expense)
-			=link_to 'delete', expense, :method => :delete, :confirm => 'Are you sure?', title: "Delete"
+			#{expense.name}
+			=number_to_currency expense.amount, unit: 'PhP '
+			=link_to 'edit', edit_project_expense_path(@project, expense)
+			=link_to 'delete', project_expense_path(@project, expense), :method => :delete, :confirm => 'Are you sure?', title: "Delete"
