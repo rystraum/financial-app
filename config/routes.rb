@@ -1,5 +1,6 @@
 FinancialApp::Application.routes.draw do
   root to: 'projects#index'
-  resources :projects
-  resources :expenses
+  resources :projects do
+	  resources :expenses, only: [:new, :edit, :update, :destroy]
+	end
 end
