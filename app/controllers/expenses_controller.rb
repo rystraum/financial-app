@@ -1,24 +1,13 @@
 class ExpensesController < ApplicationController
 
-	before_filter :find_project, except: [:destroy]
-	before_filter :find_expense, except: [:create, :new]
-	before_filter :new_expense, only: [:create, :new]
-	before_filter :find_expenses, only: [:index]
-
-	def index
-		@expenses
-	end
-
-	def show
-		@expense
-	end
-
 	def new
-		@expense
+		@project = Project.find params[:project_id]
+		@expense = @project.expenses.build
 	end
 
 	def create
-		@expense
+		@project = Project.find params[:project_id]
+		@expense = @project.expenses.build params[:expense]
 		if @expense.save
 			redirect_to @project
 		else
@@ -33,25 +22,10 @@ class ExpensesController < ApplicationController
 	end
 
 	def destroy
+		@project = Project.find params[:project_id]
+		@expense = @project.expenses.find params[:id]
 		@expense.destroy
 		redirect_to :back
-	end
-
-	private
-	def find_project
-		@project = Project.find params[:id]
-	end
-
-	def find_expenses
-		@expenses = @project.expenses.all
-	end
-
-	def find_expense
-		@expense = Expense.find params[:id]
-	end
-
-	def new_expense
-		@expense = @project.expenses.new params[:expense]
 	end
 
 end

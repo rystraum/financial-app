@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   end
 
   def total
-  	budget - list_expense.sum
+  	return budget - list_expense.sum
   end
 
 end
