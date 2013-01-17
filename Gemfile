@@ -5,6 +5,8 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'html5-rails'
 gem 'ember-rails'
+gem 'bourbon'
+gem 'neat'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
