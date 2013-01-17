@@ -2,6 +2,7 @@
 = number_to_currency @project.total, unit: 'PhP '
 #{@project.description}
 = link_to 'add new expense', new_project_expense_path(@project)
+= link_to 'delete', project_path(@project), :method => :delete, :confirm => 'Are you sure?', title: "Delete"
 %ul
 	- for expense in @expenses
 		%li
