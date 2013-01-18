@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   attr_accessible :description, :name, :budget
 
-  has_many :expenses
+  has_many :expenses, :dependent => :destroy
 
   validates :name, presence: true
   validates :budget, presence: true, numericality: true
