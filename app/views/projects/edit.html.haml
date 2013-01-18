@@ -1,0 +1,15 @@
+.container
+	.span7.end
+		%h2 Edit Form
+	.span7.form
+		= form_for @project do |f|
+			%h5 #{f.label :name, 'project name'}
+			= f.text_field :name, placeholder: :name
+			%br
+			%h5 #{f.label :description, 'project description'}
+			= f.text_area :description, :rows => '3', placeholder: :description
+			%br
+			%h5 #{f.label :budget, 'project budget'}
+			= f.text_field :budget, placeholder: :budget
+			%br
+			= f.submit 'Update Project' , class: 'btn submit rectangle'

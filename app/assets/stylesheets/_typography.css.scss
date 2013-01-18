@@ -1,0 +1,47 @@
+// start basic typography
+
+body {
+	font-size: 100%;
+	line-height: $line-height;
+	font-family: $verdana;
+	color: $text_color;
+	@include media (max-width 481px) {
+		font-size: 14px;
+	}
+}
+
+h1 {
+	font-size: ratio(3);
+	line-height: 1.06;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	color: $skyblue;
+}
+
+h2 {
+	font-size: ratio(2);
+	line-height: 1.30896em;
+	margin-top: 0.375em;
+	margin-bottom: 0.375em;
+	color: invert($skyblue);
+}
+
+h3 {
+	font-size: ratio(1);
+}
+
+h4 {
+	font-size: ratio(0);
+}
+
+h5, h6 {
+	font-size: ratio(-1);
+	line-height: 2.42;
+	margin-top: 0.375em;
+	margin-bottom: 0.375em;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+.form h5 { margin: 1.5em 0 0; color: $skyblue; }
+// end typography

@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render :partial => 'shared/nav' %>
+<%= render :partial => 'shared/error_messages' %>
 
+<div class='content'>
 <%= yield %>
+</div>
 
 </body>
 </html>

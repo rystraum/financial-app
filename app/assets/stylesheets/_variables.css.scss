@@ -1,0 +1,24 @@
+$skyblue: #0099CC;
+$gray: #292929;
+$red: #E3170D;
+
+$em-size: 1em;
+
+
+// Creating Visual Rhythm
+
+$default-font-size: 16px;
+$base-line-height: 24px;
+$line-height: $base-line-height / $default-font-size;
+
+@function vrlh($fsize) {
+	@return (($base-line-height / 1px) / ($fsize / 1em));
+}
+
+
+$text_color: $gray;
+
+@function ratio($placement) {
+	// @return golden-ratio($em-size, $placement);
+	@return modular-scale($em-size, $placement, 1.618)
+}
