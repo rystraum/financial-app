@@ -1,11 +1,21 @@
-#{@project.name}
-= number_to_currency @project.total, unit: 'PhP '
-#{@project.description}
-= link_to 'add new expense', new_project_expense_path(@project)
-%ul
-	- for expense in @expenses
-		%li
-			#{expense.name}
-			=number_to_currency expense.amount, unit: 'PhP '
-			=link_to 'edit', edit_project_expense_path(@project, expense)
-			=link_to 'delete', project_expense_path(@project, expense), :method => :delete, :confirm => 'Are you sure?', title: "Delete"
+.container
+	.span7
+		%h2 #{@project.name}
+		%h3 Budget Left: #{number_to_currency @project.total, unit: 'PhP '}
+		%p #{@project.description}
+		= link_to 'Add Expense', new_project_expense_path(@project), :class => 'btn submit rectangle', :title => 'add expense'
+
+	.span5.end
+		%h2 List of Expenses
+		- for expense in @expenses
+			.expense
+				%p
+					%strong #{expense.name}
+					%span.amount #{number_to_currency expense.amount, unit: 'PhP '}
+					%br
+					#{expense.description}
+				.options
+					%i.ss-icon
+						=link_to 'edit', edit_project_expense_path(@project, expense), :class => 'btn submit sqaure', :title => 'edit'
+					%i.ss-icon
+						=link_to 'delete', project_expense_path(@project, expense), :method => :delete, :confirm => 'Are you sure?', title: "Delete", :class => 'btn submit delete sqaure'

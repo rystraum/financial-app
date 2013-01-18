@@ -1,11 +1,15 @@
-= form_for @project do |f|
-	= f.label :name
-	= f.text_field :name
-	%br
-	= f.label :description
-	= f.text_area :description
-	%br
-	= f.label :budget
-	= f.text_field :budget
-	%br
-	= f.submit
+.container
+	.span7.end
+		%h2 Project Form
+	.span7.form
+		= form_for @project do |f|
+			%h5 #{f.label :name, 'project name'}
+			= f.text_field :name, placeholder: 'Project Name'
+			%br
+			%h5 #{f.label :description, 'project description'}
+			= f.text_area :description, :rows => '3', placeholder: 'Project Description'
+			%br
+			%h5 #{f.label :budget, 'project budget'}
+			= f.text_field :budget, placeholder: 'Project Budget'
+			%br
+			= f.submit 'Create Project' , class: 'btn submit rectangle'

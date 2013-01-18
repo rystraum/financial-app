@@ -1,7 +1,19 @@
-= link_to 'add new project', new_project_path
-- for project in @projects
-	%ul
-		%li
-			=link_to project.name, project
-			Budget left:
-			=number_to_currency project.total, unit: 'PhP'
+.container
+	.span7
+		%h2 Add New Project
+		%h5 this is a sample budgeting app
+		%p This says something about the product
+		= link_to 'New Project Budget', new_project_path, :class => 'btn submit rectangle', :title => 'add a new budget'
+
+	.span5.end
+		%h2 Project List
+		.project
+			- for project in @projects
+				.projects
+					= link_to project.name, project, :title => project.name, :class => 'btn project-btn rectangle'
+					/ %p Budget left: #{number_to_currency project.total, unit: 'PhP'}
+					.options
+						%i.ss-icon
+							=link_to 'edit', edit_project_path(project), :class => 'btn submit sqaure', :title => 'edit'
+						%i.ss-icon
+							=link_to 'delete', project, :method => :delete, :confirm => 'Are you sure?', title: "Delete", :class => 'btn submit delete sqaure'
