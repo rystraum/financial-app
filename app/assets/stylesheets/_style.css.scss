@@ -1,0 +1,209 @@
+@import "variables";
+// custom reset
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0px;
+	padding: 0px;
+	// -webkit-margin-before: 0px;
+	// -webkit-margin-after: 0px;
+	// -webkit-margin-start: 0px;
+	// -webkit-margin-end: 0px;
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+// end custom reset
+
+@import "typography";
+
+.container {
+	@include outer-container;
+	@include media (max-width 481px) {
+		margin: 0 0.3em;
+	}
+}
+
+// start navigation
+header {
+	display: block;
+	// background-color: darken($skyblue,20%);
+	.logo {
+		position: fixed;
+		left: 5%;
+		top: 3em;
+	}
+}
+
+.nav {
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+	margin-bottom: 1.5em;
+	ul {
+		display: inline-block;
+		list-style: none;
+		padding: 0px;
+		margin: 16px 0 ;
+		li {
+			float: left;
+			margin-right: 1.5em;
+			vertical-align: baseline;
+			a {
+			text-decoration: none;
+			color: $skyblue;
+			border-bottom: 3px solid;
+			padding-bottom: 10px;
+			&:hover {	border-bottom: 3px solid darken($skyblue, 30%); }
+			}
+		}
+	}
+}
+
+
+// end navigation
+
+// buttons
+.btn {
+	display: inline-block;
+	outline: 0;
+	text-decoration: none;
+	border: 0;
+}
+.submit {
+	color: white;
+	background-color: $skyblue;
+	text-align: center;
+	&:hover {	background-color: darken($skyblue, 30%); }
+}
+i.ss-icon {
+	a {
+		padding: 0.3em 0.25em;
+	}
+	.round {
+		border-radius: 50%;
+		height: 2em;
+		width: 2em;
+	}
+	.sqaure {
+		height: 2em;
+		width: 2em;
+	}
+}
+
+.rectangle {
+	padding: 0.375em 1em;
+	@include media (max-width 481px) {
+		display: block;
+		text-align: left;
+	}
+}
+
+.delete { background: $red; &:hover { background-color: darken($red, 30%); }}
+
+.project-btn {
+	display: block;
+	color: $gray;
+	font-weight: bold;
+	padding-left: 1.5em;
+	background-color: lighten($skyblue, 50%);
+	&:hover {	color: white; background-color: darken($skyblue, 30%); }
+}
+
+input[type="button"], input[type="submit"], input[type="reset"],
+input[type="file"]::-webkit-file-upload-button, button {
+	font-size: ratio(0);
+	margin-top: 1.5em;
+}
+
+// end buttons
+
+// start forms
+.form input { display: inline-block; width: 100%;}
+
+textarea {
+	border: 1px solid lighten($gray,60%);
+	font-size: ratio(0);
+	width: 100%;
+	margin: 0.75em, 0em;
+	padding: 0.75em;
+	&:focus { background-color: white }
+}
+
+#{$all-text-inputs} {
+  border: 1px solid lighten($gray,60%);
+ 	margin: 0.75em, 0em;
+  font-size: ratio(0);
+  padding: 0.75em;
+}
+// #{$all-text-inputs-hover} { // Target the :hover pseudo-class
+//   background-color: lighten($skyblue, 60%);
+// }
+#{$all-text-inputs-focus} { // Target the :focus pseudo-class
+  background-color: white;
+}
+
+// end forms
+
+.expense {
+	position: relative;
+	margin: 0.75em 0;
+	padding: 0.75em;
+	background-color: lighten($gray, 80%);
+	.amount { color: $red; }
+}
+
+.options {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.project { margin-top: 1.5em; }
+.projects { position: relative; margin: 0.375em 0; .options {top:5%;}}
+
+.alert {
+	position: relative;
+	top: 0;
+	color: white;
+	max-width: 100%;
+	padding: 0.375em;
+	z-index: 100;
+	}
+
+.error { background-color: $red; }
+.success { background-color: green; }
+
+.content { z-index: 50; }
+
+p, aside {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+}
+
+aside {
+	font-size: 0.75em;
+	line-height: 2;
+}
+
+.span7 {
+	@include span-columns(7);
+	@include media (max-width 481px) {
+		@include span-columns(12);
+		margin: 0 0 1.5em 0;
+	}
+}
+
+.span12 { @include span-columns(12); }
+
+.span5 {
+	@include span-columns(5);
+	@include media (max-width 481px) {
+		@include span-columns(12);
+		margin: 0 0 1.5em 0;
+	}
+}
+
+.end {
+	@include omega;
+}
