@@ -10,7 +10,7 @@
 		.project
 			- for project in @projects
 				.projects
-					= link_to project.name, project, :title => project.name, :class => 'btn project-btn rectangle'
+					= link_to project.summary, project, :title => project.name, :class => 'btn project-btn rectangle'
 					/ %p Budget left: #{number_to_currency project.total, unit: 'PhP'}
 					.options
 						%i.ss-icon

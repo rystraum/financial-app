@@ -7,6 +7,10 @@ class Project < ActiveRecord::Base
   validates :name, presence: true
   validates :budget, presence: true, numericality: true
 
+  def summary
+    "#{name} : #{total}/#{budget}"
+  end
+
   def list_expense
   	expenses.map do |i| i.amount end
   end
